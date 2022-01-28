@@ -6,13 +6,24 @@
 </template>
 
 <script>
-// @ is an alias to /src
+import {mapGetters} from 'vuex'
 import HelloWorld from '@/components/HelloWorld.vue'
+import {FETCH_PLAYLISTS} from '../store/actions.type'
 
 export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+  methods: {
+
+  },
+  async created() {
+    await this.$store.dispatch(FETCH_PLAYLISTS)
+    console.log(this.playlists);
+  },
+  computed: {
+    ...mapGetters(['playlists'])
   }
 }
 </script>
