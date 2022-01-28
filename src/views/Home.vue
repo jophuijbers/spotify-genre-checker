@@ -17,8 +17,8 @@ export default {
   components: {
     LoginButton,
     ItemCard
-  mixins: [authMixin],
   },
+  mixins: [authMixin],
   async created() {
     if (this.isAuthenticated) {
       await this.$store.dispatch(FETCH_PLAYLISTS)
