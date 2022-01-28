@@ -10,22 +10,27 @@ import {mapGetters} from 'vuex'
 import LoginButton from '@/components/LoginButton.vue'
 import ItemCard from '@/components/ItemCard.vue'
 import {FETCH_PLAYLISTS} from '../store/actions.type'
+import authMixin from "../mixins/authMixin"
 
 export default {
   name: 'Home',
   components: {
     LoginButton,
     ItemCard
-  },
-  methods: {
-
+  mixins: [authMixin],
   },
   async created() {
-    await this.$store.dispatch(FETCH_PLAYLISTS)
-    console.log(this.playlists);
+    if (this.isAuthenticated) {
+      await this.$store.dispatch(FETCH_PLAYLISTS)
+    }
+    if (this.$route.hash) {
+      await this.storeTokenFromUrl(this.$route.hash)
+      await this.$store.dispatch(FETCH_PLAYLISTS)
+      await this.$router.push('/')
+    }
   },
   computed: {
-    ...mapGetters(['playlists'])
+    ...mapGetters(['isAuthenticated', 'authUrl', 'playlists'])
   }
 }
 </script>
