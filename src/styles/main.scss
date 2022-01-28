@@ -1,2 +1,13 @@
 @import './views/views';
 @import './components/components';
+@import './base/variables';
+
+@import url('http://fonts.cdnfonts.com/css/montserrat');
+
+body {
+    background-color: $default-background;
+}
+
+#app{
+    font-family: 'Montserrat';
+}

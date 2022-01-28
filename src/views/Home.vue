@@ -1,19 +1,21 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ItemCard/>
+    <LoginButton/>
   </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
-import HelloWorld from '@/components/HelloWorld.vue'
+import LoginButton from '@/components/LoginButton.vue'
+import ItemCard from '@/components/ItemCard.vue'
 import {FETCH_PLAYLISTS} from '../store/actions.type'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    LoginButton,
+    ItemCard
   },
   methods: {
 
