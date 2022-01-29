@@ -1,0 +1,7 @@
+@use '../base/variables.scss' as *;
+
+.custom-card {
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px 0 rgba(0,0,0,0.35);
+  background-color: $default-secondary;
+}

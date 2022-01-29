@@ -30,7 +30,7 @@ export default {
       max-width: 200px;
       min-height: 150px;
       max-height: 250px;
-      background-color: $default-cardColor;
+      background-color: $default-secondary;
       border-radius: 15px;
       box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.35);
       padding: 20px 20px;
