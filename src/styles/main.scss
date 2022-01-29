@@ -8,9 +8,14 @@
     padding: 0 !important;
     margin: 0 !important;
 }
-
+html::-webkit-scrollbar {
+    display: none;
+}
 html {
     background-color: $default-background;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 #app{

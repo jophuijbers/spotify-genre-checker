@@ -6,7 +6,7 @@
       </div>
         <div v-if="isAuthenticated" class="items row playlistCardWrapper">
           <div class="headerWrapper mt-4 mb-3 mx-3">
-            <h2 class="">Playlist Overview</h2>
+            <h2 class="d-flex justify-content-center">Playlist Overview</h2>
           </div>
           <ItemCard @click.native="$router.push('/playlist/' + playlist.id)" v-for="playlist in playlists" :key="playlist.id" :name="playlist.name" :image=" playlist.images[0] ? playlist.images[0].url : null" class="m-3"/>
         </div>
@@ -49,6 +49,7 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+
   h2{
     color: white;
     font-weight: bold;
