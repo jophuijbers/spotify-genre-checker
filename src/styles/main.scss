@@ -4,10 +4,16 @@
 
 @import url('http://fonts.cdnfonts.com/css/montserrat');
 
-body {
-    background-color: $default-background;
+* {
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 #app{
     font-family: 'Montserrat';
+    background-color: $default-background;
+}
+
+p {
+    color: $default-text;
 }

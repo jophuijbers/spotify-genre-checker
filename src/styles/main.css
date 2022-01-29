@@ -1,0 +1,16 @@
+@import url("http://fonts.cdnfonts.com/css/montserrat");
+* {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#app {
+  font-family: "Montserrat";
+  background-color: #0a0a0a;
+}
+
+p {
+  color: white;
+}
+
+/*# sourceMappingURL=main.css.map */
