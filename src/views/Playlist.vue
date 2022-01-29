@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoading" class="playlist p-5">
+  <div v-if="!isLoading" class="playlist p-5">
     <div class="playlist-details custom-card d-flex p-3 mb-5">
       <img class="image" :src="playlist.images[0].url" alt="">
       <div class="d-flex flex-column ml-4">
@@ -81,7 +81,6 @@ export default {
       counted.sort((a, b) => {
         return b.count - a.count
       })
-      console.log(counted)
       return counted.slice(0, 3)
     },
     totalGenres() {

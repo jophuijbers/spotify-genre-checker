@@ -29,7 +29,6 @@ export default {
   mixins: [authMixin],
   methods: {
     login() {
-      console.log(this.authUrl)
       window.open(this.authUrl, '_self')
     },
   },
