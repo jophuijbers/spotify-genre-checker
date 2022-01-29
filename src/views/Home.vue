@@ -57,7 +57,7 @@ export default {
     width: 100vw;
   }
   .home {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     .buttonWrapper{
       display: flex;
