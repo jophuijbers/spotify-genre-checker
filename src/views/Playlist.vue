@@ -1,39 +1,42 @@
 <template>
-  <div v-if="!isLoading" class="playlist p-5">
-    <div class="playlist-details custom-card d-flex p-3 mb-5">
-      <img class="image" :src="playlist.images[0].url" alt="">
-      <div class="d-flex flex-column ml-4">
-        <a :href="playlist.owner.external_urls.spotify" target="_blank" class="title text-white font-weight-bold h1">{{ playlist.name }}</a>
-        <p class="mt-1">{{ playlist.description }}</p>
-        <div class="d-flex mt-auto text-white">
-          <a :href="playlist.owner.external_urls.spotify" target="_blank" class="text-white">{{ playlist.owner.display_name }}</a><span class="mx-1">&#8226;</span>
-          <p>{{ playlist.followers.total }} followers</p><span class="mx-1">&#8226;</span>
-          <p class="">{{ playlist.tracks.items.length }} tracks, {{ totalTime() }}</p>
+  <div>
+    <Loader v-if="isLoading" />
+    <div v-else class="playlist p-5">
+      <div class="playlist-details custom-card d-flex p-3 mb-5">
+        <img class="image" :src="playlist.images[0].url" alt="">
+        <div class="d-flex flex-column ml-4">
+          <a :href="playlist.owner.external_urls.spotify" target="_blank" class="title text-white font-weight-bold h1">{{ playlist.name }}</a>
+          <p class="mt-1">{{ playlist.description }}</p>
+          <div class="d-flex mt-auto text-white">
+            <a :href="playlist.owner.external_urls.spotify" target="_blank" class="text-white">{{ playlist.owner.display_name }}</a><span class="mx-1">&#8226;</span>
+            <p>{{ playlist.followers.total }} followers</p><span class="mx-1">&#8226;</span>
+            <p class="">{{ playlist.tracks.items.length }} tracks, {{ totalTime() }}</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="genres w-50 mb-5">
-      <p class="font-weight-bold h3 mb-3">Genres</p>
-      <div v-for="(genre, index) in top3" :key="genre.name" class="genre custom-card d-flex px-4 py-3 mb-3">
-        <p class="rank h1 text-center font-weight-bold">{{ index+1 }}</p>
-        <div class="ml-4">
-          <p class="h5 font-weight-bold">{{ toPascalCase(genre.name) }}</p>
-          <p>{{ `${genre.count} out of ${tracks.length}` }} tracks</p>
+      <div class="genres w-50 mb-5">
+        <p class="font-weight-bold h3 mb-3">Genres</p>
+        <div v-for="(genre, index) in top3" :key="genre.name" class="genre custom-card d-flex px-4 py-3 mb-3">
+          <p class="rank h1 text-center font-weight-bold">{{ index+1 }}</p>
+          <div class="ml-4">
+            <p class="h5 font-weight-bold">{{ toPascalCase(genre.name) }}</p>
+            <p>{{ `${genre.count} out of ${tracks.length}` }} tracks</p>
+          </div>
+          <p class="h1 font-weight-bold ml-auto">{{ Math.round(genre.count / tracks.length * 100) }}%</p>
         </div>
-        <p class="h1 font-weight-bold ml-auto">{{ Math.round(genre.count / tracks.length * 100) }}%</p>
       </div>
-    </div>
-    <div class="tracks">
-      <p class="font-weight-bold h3 mb-3">Tracks</p>
-      <div v-for="(item,index) in tracks" :key="index" class="track custom-card d-flex mb-3 p-2">
-        <img class="image" :src="item.track.album.images[0].url" alt="">
-        <div class="d-flex flex-column justify-content-between ml-3">
-          <a :href="item.track.external_urls.spotify" target="_blank" class="title text-white h5 font-weight-bold">{{ item.track.name }}</a>
-          <div class="details">
-            <p class="artist">Artist: {{ item.track.artists[0].name }}</p>
-            <p>
-              Genres: <span v-for="(genre,index) in item.genres" :key="index" class="genres">{{ toPascalCase(genre) }}{{ item.genres.length !== index+1 ? ', ' : '' }}</span>
-            </p>
+      <div class="tracks">
+        <p class="font-weight-bold h3 mb-3">Tracks</p>
+        <div v-for="(item,index) in tracks" :key="index" class="track custom-card d-flex mb-3 p-2">
+          <img class="image" :src="item.track.album.images[0].url" alt="">
+          <div class="d-flex flex-column justify-content-between ml-3">
+            <a :href="item.track.external_urls.spotify" target="_blank" class="title text-white h5 font-weight-bold">{{ item.track.name }}</a>
+            <div class="details">
+              <p class="artist">Artist: {{ item.track.artists[0].name }}</p>
+              <p>
+                Genres: <span v-for="(genre,index) in item.genres" :key="index" class="genres">{{ toPascalCase(genre) }}{{ item.genres.length !== index+1 ? ', ' : '' }}</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -44,10 +47,11 @@
 <script>
 import {FETCH_PLAYLIST} from "../store/actions.type";
 import {mapGetters} from "vuex";
+import Loader from "../components/Loader";
 
 export default {
   name: "Playlist",
-  components: {},
+  components: {Loader},
   data() {
     return {
       isLoading: false,
