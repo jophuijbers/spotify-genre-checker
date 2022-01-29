@@ -1,8 +1,8 @@
 <template>
   <div class="card">
       <div class="item">
-          <img src="https://i.scdn.co/image/ab67706c0000bebb0d116c4269d35ece2d45eda2">
-          <p>Playlist Name</p>
+          <img :src="image">
+          <p>{{ name }}</p>
       </div>
       
   </div>
@@ -11,6 +11,7 @@
 <script>
 export default {
   name: 'ItemCard',
+  props: ['name', 'image']
 }
 </script>
 
