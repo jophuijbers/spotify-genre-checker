@@ -102,39 +102,5 @@ export default {
 </script>
 
 <style lang="scss">
-@use '../styles/base/variables.scss' as *;
 
-.playlist {
-  .playlist-details {
-    background-color: $default-cardColor;
-    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.35);
-    border-radius: 16px;
-    .image {
-      width: 200px;
-      border-radius: 16px;
-    }
-  }
-  .genres {
-    .genre {
-      box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.35);
-      background-color: $default-cardColor;
-      border-radius: 16px;
-      .rank {
-        width: 25px;
-      }
-    }
-  }
-  .tracks {
-    .track {
-      box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.35);
-      background-color: $default-cardColor;
-      color: white;
-      border-radius: 20px;
-      .image {
-        max-height: 100px;
-        border-radius: 16px;
-      }
-    }
-  }
-}
 </style>

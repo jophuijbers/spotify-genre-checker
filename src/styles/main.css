@@ -1,4 +1,32 @@
 @import url("http://fonts.cdnfonts.com/css/montserrat");
+.playlist .playlist-details {
+  background-color: #141414;
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+}
+.playlist .playlist-details .image {
+  width: 200px;
+  border-radius: 16px;
+}
+.playlist .genres .genre {
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.35);
+  background-color: #141414;
+  border-radius: 16px;
+}
+.playlist .genres .genre .rank {
+  width: 25px;
+}
+.playlist .tracks .track {
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.35);
+  background-color: #141414;
+  color: white;
+  border-radius: 20px;
+}
+.playlist .tracks .track .image {
+  max-height: 100px;
+  border-radius: 16px;
+}
+
 * {
   padding: 0 !important;
   margin: 0 !important;
