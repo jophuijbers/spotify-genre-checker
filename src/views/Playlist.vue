@@ -29,7 +29,7 @@
           <div class="details">
             <p class="artist">Artist: {{ item.track.artists[0].name }}</p>
             <p>
-              Genres: <span v-for="(genre,index) in item.genres" :key="index" class="genres">{{ item.genres.length !== index+1 ? genre + ', ' : genre }}</span>
+              Genres: <span v-for="(genre,index) in item.genres" :key="index" class="genres">{{ toPascalCase(genre) }}{{ item.genres.length !== index+1 ? ', ' : '' }}</span>
             </p>
           </div>
         </div>
