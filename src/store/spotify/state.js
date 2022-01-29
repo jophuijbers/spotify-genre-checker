@@ -10,6 +10,7 @@ export default function () {
             let response_type = 'token'
             return `${source_url}?client_id=${client_id}&redirect_uri=${redirect_url}&response_type=${response_type}`
         },
-        playlists: []
+        playlists: [],
+        tracks: []
     }
 }
