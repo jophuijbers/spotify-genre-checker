@@ -4,7 +4,7 @@
           <h2 class="my-3" v-if="!isAuthenticated">Login to your Spotify</h2>
           <LoginButton class="LoginButton" v-if="!isAuthenticated" @click.native="login"/>
       </div>
-        <div v-if="isAuthenticated" class="items row ml-4 playlistCardWrapper">
+        <div v-if="isAuthenticated" class="items row playlistCardWrapper">
           <div class="headerWrapper mt-4 mb-3 mx-3">
             <h2 class="">Playlist Overview</h2>
           </div>
@@ -60,7 +60,8 @@ export default {
     min-height: 100vh;
     width: 100vw;
     .playlistCardWrapper{
-      
+      display: flex;
+      justify-content: space-evenly;
     }
     .buttonWrapper{
       display: flex;
