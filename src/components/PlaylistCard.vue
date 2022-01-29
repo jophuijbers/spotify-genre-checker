@@ -2,7 +2,7 @@
   <div class="card">
       <div class="item">
           <img :src="image">
-          <p>{{ name }}</p>
+          <p class="my-2 mx-2">{{ name }}</p>
       </div>
       
   </div>
@@ -34,16 +34,23 @@ export default {
       border-radius: 15px;
       box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.35);
       padding: 20px 20px;
+      overflow: hidden;
+      cursor: pointer;
       p{
-          color: white;
+        color: white;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
         .item{
            text-align: center;
             img {
                 width: 100%;
-                 border-radius: 3px;
+                border-radius: 3px;
                 box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);
-                margin-bottom: 12px;
+                min-height: 200px;
+                max-height: 200px;
+                object-fit: cover;
             }
         }
     }

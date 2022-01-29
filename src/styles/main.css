@@ -1,6 +1,8 @@
 @import url("http://fonts.cdnfonts.com/css/montserrat");
 .playlist .playlist-details .image {
   width: 160px;
+  height: 160px;
+  object-fit: cover;
   border-radius: 16px;
 }
 .playlist .genres .genre .rank {
@@ -20,6 +22,10 @@
 * {
   padding: 0 !important;
   margin: 0 !important;
+}
+
+html {
+  background-color: #0a0a0a;
 }
 
 #app {

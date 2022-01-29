@@ -9,6 +9,10 @@
     margin: 0 !important;
 }
 
+html {
+    background-color: $default-background;
+}
+
 #app{
     min-height: 100vh;
     font-family: 'Montserrat', serif;
