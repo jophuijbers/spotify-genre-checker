@@ -9,6 +9,10 @@
     margin: 0 !important;
 }
 
+html {
+    background-color: $default-background;
+}
+
 #app{
     font-family: 'Montserrat';
     background-color: $default-background;
