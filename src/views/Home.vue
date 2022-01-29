@@ -10,7 +10,7 @@
 <script>
 import {mapGetters} from 'vuex'
 import LoginButton from '@/components/LoginButton.vue'
-import ItemCard from '@/components/ItemCard.vue'
+import ItemCard from '@/components/PlaylistCard.vue'
 import {FETCH_PLAYLISTS} from '../store/actions.type'
 import authMixin from "../mixins/authMixin"
 
