@@ -1,9 +1,11 @@
 import ApiService from "../../services/api.service";
 import {
-    FETCH_PLAYLISTS, FETCH_TRACKS
+    FETCH_PLAYLIST,
+    FETCH_PLAYLISTS
 } from '../actions.type'
 import {
-    SET_PLAYLISTS, SET_TRACKS
+    SET_PLAYLIST,
+    SET_PLAYLISTS
 } from '../mutations.type'
 
 const actions = {
@@ -16,22 +18,19 @@ const actions = {
             console.log(response)
         }
     },
-    async [FETCH_TRACKS] (context, playlist) {
+    async [FETCH_PLAYLIST] (context, playlist) {
         ApiService.setHeader()
         try {
-            const {data} = await ApiService.get(`/playlists/${playlist}/tracks`)
-            let tracks = []
-            for (const item of data.items) {
+            const {data} = await ApiService.get(`/playlists/${playlist}`)
+            for (const item of data.tracks.items) {
                 const { data } = await ApiService.get(`/artists/${item.track.artists[0].id}`)
                 item.genres = data.genres
-                tracks.push(item)
             }
-            context.commit(SET_TRACKS, tracks)
-            console.log('fetched')
+            context.commit(SET_PLAYLIST, data)
         } catch ({ response }) {
             console.log(response)
         }
-    },
+    }
 }
 
 export default actions

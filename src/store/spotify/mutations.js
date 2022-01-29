@@ -1,4 +1,4 @@
-import {SET_AUTH, SET_PLAYLISTS, SET_TRACKS} from "../mutations.type"
+import {SET_AUTH, SET_PLAYLIST, SET_PLAYLISTS} from "../mutations.type"
 
 const mutations = {
     [SET_AUTH] (state) {
@@ -7,8 +7,8 @@ const mutations = {
     [SET_PLAYLISTS] (state, playlists) {
         state.playlists = playlists
     },
-    [SET_TRACKS] (state, tracks) {
-        state.tracks = tracks
+    [SET_PLAYLIST] (state, playlist) {
+        state.playlist = playlist
     }
 }
 

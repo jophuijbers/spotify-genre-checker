@@ -1,3 +1,3 @@
 
 export const FETCH_PLAYLISTS = 'fetchPlaylists'
-export const FETCH_TRACKS = 'fetchTracks'
+export const FETCH_PLAYLIST = 'fetchPlaylist'
