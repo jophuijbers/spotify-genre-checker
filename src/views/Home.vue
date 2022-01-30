@@ -1,82 +1,50 @@
 <template>
-  <div class="home">
-      <div class="buttonWrapper" v-if="!isAuthenticated">
-          <h2 class="my-3" v-if="!isAuthenticated">Login to your Spotify</h2>
-          <LoginButton class="LoginButton" v-if="!isAuthenticated" @click.native="login"/>
+  <div class="home p-5">
+    <div class="w-75 d-flex flex-column mx-auto mb-5">
+      <p class="text-center h2 font-weight-bold mb-3">Check genres of public playlist</p>
+      <b-input placeholder="Paste Spotify url/id here" class="mb-3"></b-input>
+      <b-button class="button mx-auto">Find playlist</b-button>
+    </div>
+
+    <div class="mb-5">
+      <p class="h2 mb-3 font-weight-bold text-center">Your Spotify playlists</p>
+      <p v-if="!isAuthenticated" class="h5 text-center">Give access to your Spotify playlists by logging in to your account</p>
+      <div v-else class="row justify-content-around">
+        <PlaylistCard
+            @click.native="$router.push('/playlist/' + playlist.id)"
+            v-for="playlist in playlists" :key="playlist.id"
+            :name="playlist.name" :image=" playlist.images[0] ? playlist.images[0].url : null"
+            class="m-3"
+        />
       </div>
-        <div v-if="isAuthenticated" class="items row playlistCardWrapper">
-          <div class="headerWrapper mt-4 mb-3 mx-3">
-            <h2 class="d-flex justify-content-center">Playlist Overview</h2>
-          </div>
-          <ItemCard @click.native="$router.push('/playlist/' + playlist.id)" v-for="playlist in playlists" :key="playlist.id" :name="playlist.name" :image=" playlist.images[0] ? playlist.images[0].url : null" class="m-3"/>
-        </div>
+    </div>
   </div>
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
-import LoginButton from '@/components/LoginButton.vue'
-import ItemCard from '@/components/PlaylistCard.vue'
+import PlaylistCard from '@/components/PlaylistCard.vue'
 import {FETCH_PLAYLISTS} from '../store/actions.type'
 import authMixin from "../mixins/authMixin"
 
 export default {
   name: 'Home',
   components: {
-    LoginButton,
-    ItemCard
+    PlaylistCard
   },
   mixins: [authMixin],
   methods: {
-    login() {
-      window.open(this.authUrl, '_self')
-    },
   },
   async created() {
     if (this.isAuthenticated) {
       await this.$store.dispatch(FETCH_PLAYLISTS)
     }
-    if (this.$route.hash) {
-      await this.storeTokenFromUrl(this.$route.hash)
-      await this.$store.dispatch(FETCH_PLAYLISTS)
-      await this.$router.push('/')
-    }
   },
   computed: {
-    ...mapGetters(['isAuthenticated', 'authUrl', 'playlists'])
+    ...mapGetters(['isAuthenticated', 'playlists'])
   }
 }
 </script>
 
 <style scoped lang='scss'>
-
-  h2{
-    color: white;
-    font-weight: bold;
-  }
-  .headerWrapper{
-    width: 100vw;
-  }
-  .home {
-    min-height: 100vh;
-    width: 100vw;
-    .playlistCardWrapper{
-      display: flex;
-      justify-content: space-evenly;
-    }
-    .buttonWrapper{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100vh;
-      align-items: center;
-      h2{
-        font-weight: bold;
-        color: white;
-      }
-      .LoginButton {
-        cursor: pointer;
-      }
-    }
-  }
 </style>

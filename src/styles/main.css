@@ -75,6 +75,18 @@
   }
 }
 
+.button {
+  background: linear-gradient(45deg, #00250a, #003f11);
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.35);
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  border: none;
+}
+.button:focus, .button:active:focus {
+  box-shadow: none !important;
+}
+
 p, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: white;
   margin: 0;
