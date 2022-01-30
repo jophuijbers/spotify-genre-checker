@@ -1,9 +1,15 @@
 <template>
   <div id="app">
-    <router-view/>
+    <Nav />
   </div>
 </template>
 
 <style>
 
 </style>
+<script>
+import Nav from "./components/Nav";
+export default {
+  components: {Nav}
+}
+</script>
