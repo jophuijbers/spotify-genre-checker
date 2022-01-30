@@ -1,5 +1,25 @@
 @use '../base/variables.scss' as *;
 
+.info-wrapper {
+  width: 100%;
+  .graphCard{
+    background-color: $default-secondary;
+    width: 50%;
+    border-radius: 16px;
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .fakeGraph{
+      border: 70px solid white;
+      border-radius: 50%;
+      width: 400px;
+      height: 400px;
+      box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.35);
+    }
+  }
+}
+
 .playlist {
   .playlist-details {
     .image {

@@ -2,19 +2,21 @@
   <div>
     <Loader v-if="isLoading" />
     <div v-else class="playlist p-5">
-      <div class="playlist-details custom-card d-flex p-3 mb-5">
+      <div class="info-wrapper d-flex">
+        <div class="w-50 mr-5">
+        <div class="playlist-details custom-card d-flex p-3 mb-5">
         <img class="image" :src="playlist.images[0].url" alt="">
         <div class="d-flex flex-column ml-4">
           <a :href="playlist.owner.external_urls.spotify" target="_blank" class="title text-white font-weight-bold h1">{{ playlist.name }}</a>
           <p class="mt-1">{{ playlist.description }}</p>
-          <div class="d-flex mt-auto text-white">
-            <a :href="playlist.owner.external_urls.spotify" target="_blank" class="text-white">{{ playlist.owner.display_name }}</a><span class="mx-1">&#8226;</span>
-            <p>{{ playlist.followers.total }} followers</p><span class="mx-1">&#8226;</span>
+          <div class="d-flex mt-auto flex-column text-white">
+            <a :href="playlist.owner.external_urls.spotify" target="_blank" class="text-white">{{ playlist.owner.display_name }}</a>
+            <p>{{ playlist.followers.total }} followers</p>
             <p class="">{{ playlist.tracks.items.length }} tracks, {{ totalTime() }}</p>
           </div>
         </div>
       </div>
-      <div class="genres w-50 mb-5">
+      <div class="genres mb-5">
         <p class="font-weight-bold h3 mb-3">Genres</p>
         <div v-for="(genre, index) in top3" :key="genre.name" class="genre custom-card d-flex px-4 py-3 mb-3">
           <p class="rank h1 text-center font-weight-bold">{{ index+1 }}</p>
@@ -25,6 +27,12 @@
           <p class="h1 font-weight-bold ml-auto">{{ Math.round(genre.count / tracks.length * 100) }}%</p>
         </div>
       </div>
+      </div>
+      <div class="graphCard mb-5">
+        <div class="fakeGraph"></div>
+      </div>
+      </div>
+      
       <div class="tracks">
         <p class="font-weight-bold h3 mb-3">Tracks</p>
         <div v-for="(item,index) in tracks" :key="index" class="track custom-card d-flex mb-3 p-2">
