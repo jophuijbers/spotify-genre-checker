@@ -12,12 +12,12 @@ Vue.prototype.$devMode = true // devmode
 
 Vue.config.productionTip = false
 
-// Import main.scss
-import './styles/main.scss'
-
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+// Import main.scss
+import './styles/main.scss'
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
