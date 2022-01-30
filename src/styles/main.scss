@@ -4,10 +4,16 @@
 
 @import url('http://fonts.cdnfonts.com/css/montserrat');
 
-* {
-    padding: 0 !important;
-    margin: 0 !important;
+//* {
+//    padding: 0;
+//    margin: 0;
+//}
+
+p,.h1,.h2,.h3,.h4,.h5,.h6 {
+    color: $default-text;
+    margin: 0;
 }
+
 html::-webkit-scrollbar {
     display: none;
 }
@@ -22,8 +28,4 @@ html {
     min-height: 100vh;
     font-family: 'Montserrat', serif;
     background-color: $default-background;
-}
-
-p {
-    color: $default-text;
 }
