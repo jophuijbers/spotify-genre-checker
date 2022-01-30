@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Nav />
+    <router-view class="route-page"/>
   </div>
 </template>
 
@@ -13,3 +14,9 @@ export default {
   components: {Nav}
 }
 </script>
+
+<style>
+ .route-page {
+   padding-top: 88px;
+ }
+</style>
