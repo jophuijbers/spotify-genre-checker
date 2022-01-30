@@ -1,12 +1,17 @@
-import {JWT_TOKEN_KEY, saveToken} from "../services/local_storage.service";
-import {SET_AUTH} from "../store/mutations.type";
+import {LOGIN} from "../store/actions.type";
 
 export default {
+    async created() {
+      await this.handleIncomingToken()
+    },
     methods: {
-        async storeTokenFromUrl(url) {
-            let token = url.substring(url.indexOf('=')+1, url.indexOf('&'))
-            saveToken(JWT_TOKEN_KEY, token)
-            await this.$store.commit(SET_AUTH)
+        async handleIncomingToken() {
+            if (this.$route.hash) {
+                let hash = this.$route.hash
+                let token = hash.substring(hash.indexOf('=')+1, hash.indexOf('&'))
+                await this.$store.dispatch(LOGIN, token)
+                await this.$router.push('/')
+            }
         }
     }
 }
