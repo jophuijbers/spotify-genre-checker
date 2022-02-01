@@ -12,7 +12,7 @@
           <div class="d-flex mt-auto flex-column text-white">
             <a :href="playlist.owner.external_urls.spotify" target="_blank" class="text-white">{{ playlist.owner.display_name }}</a>
             <p>{{ playlist.followers.total }} followers</p>
-            <p class="">{{ playlist.tracks.items.length }} tracks, {{ totalTime() }}</p>
+            <p class="">{{ playlist.tracks.total }} tracks, {{ totalTime() }}</p>
           </div>
         </div>
       </div>
@@ -22,9 +22,9 @@
           <p class="rank h1 text-center font-weight-bold">{{ index+1 }}</p>
           <div class="ml-4">
             <p class="h5 font-weight-bold">{{ toPascalCase(genre.name) }}</p>
-            <p>{{ `${genre.count} out of ${tracks.length}` }} tracks</p>
+            <p>{{ `${genre.count} out of ${playlist.tracks.total}` }} tracks</p>
           </div>
-          <p class="h1 font-weight-bold ml-auto">{{ Math.round(genre.count / tracks.length * 100) }}%</p>
+          <p class="h1 font-weight-bold ml-auto">{{ Math.round(genre.count / playlist.tracks.total * 100) }}%</p>
         </div>
       </div>
       </div>
