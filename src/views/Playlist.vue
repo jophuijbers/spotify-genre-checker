@@ -7,7 +7,7 @@
         <div class="playlist-details custom-card d-flex p-3 mb-5">
         <img class="image" :src="playlist.images[0].url" alt="">
         <div class="d-flex flex-column ml-4">
-          <a :href="playlist.owner.external_urls.spotify" target="_blank" class="title text-white font-weight-bold h1">{{ playlist.name }}</a>
+          <a :href="playlist.external_urls.spotify" target="_blank" class="title text-white font-weight-bold h1">{{ playlist.name }}</a>
           <p class="mt-1">{{ playlist.description }}</p>
           <div class="d-flex mt-auto flex-column text-white">
             <a :href="playlist.owner.external_urls.spotify" target="_blank" class="text-white">{{ playlist.owner.display_name }}</a>
@@ -40,7 +40,7 @@
           <div class="d-flex flex-column justify-content-between ml-3">
             <a :href="item.track.external_urls.spotify" target="_blank" class="title text-white h5 font-weight-bold">{{ item.track.name }}</a>
             <div class="details">
-              <p class="artist">Artist: {{ item.track.artists[0].name }}</p>
+              <p class="artist">Artist: <a :href="item.track.artists[0].external_urls.spotify" target="_blank" class="text-white">{{ item.track.artists[0].name }}</a></p>
               <p>
                 Genres: <span v-for="(genre,index) in item.genres" :key="index" class="genres">{{ toPascalCase(genre) }}{{ item.genres.length !== index+1 ? ', ' : '' }}</span>
               </p>
