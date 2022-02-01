@@ -16,6 +16,9 @@ const actions = {
             context.commit(SET_PLAYLISTS, data.items)
         } catch ({ response }) {
             console.log(response)
+            if (response.data.error.message === 'The access token expired') {
+                window.open(context.rootGetters.authUrl, '_self')
+            }
         }
     },
     async [FETCH_PLAYLIST] (context, playlist) {

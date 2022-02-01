@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import spotify from './spotify'
+import playlists from './playlists'
 import auth from './auth'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    spotify,
+    playlists,
     auth
   }
 })
