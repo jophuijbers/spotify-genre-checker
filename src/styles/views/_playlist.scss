@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 80px 0;
   .fakeGraph{
     border: 70px solid white;
     border-radius: 50%;
@@ -21,6 +22,22 @@
       height: 160px;
       object-fit: cover;
       border-radius: 16px;
+    }
+    .info {
+      overflow: hidden;
+      .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        max-height: 3rem;       /* fallback */
+      }
     }
   }
   .genres {

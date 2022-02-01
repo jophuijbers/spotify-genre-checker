@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 80px 0;
 }
 .graphCard .fakeGraph {
   border: 70px solid white;
@@ -17,6 +18,24 @@
   height: 160px;
   object-fit: cover;
   border-radius: 16px;
+}
+.playlist .details .info {
+  overflow: hidden;
+}
+.playlist .details .info .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.playlist .details .info .description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
+  max-height: 3rem;
+  /* fallback */
 }
 .playlist .genres .genre .rank {
   width: 25px;
