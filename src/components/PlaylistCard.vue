@@ -19,12 +19,6 @@ export default {
 
 @use '../styles/base/variables.scss' as *;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
     .card {
       width: 200px;
       max-width: 200px;

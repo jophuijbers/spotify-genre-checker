@@ -1,17 +1,10 @@
 @import url("http://fonts.cdnfonts.com/css/montserrat");
-.info-wrapper {
-  width: 100%;
-}
-.info-wrapper .graphCard {
-  background-color: #141414;
-  width: 50%;
-  border-radius: 16px;
-  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.35);
+.graphCard {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.info-wrapper .graphCard .fakeGraph {
+.graphCard .fakeGraph {
   border: 70px solid white;
   border-radius: 50%;
   width: 400px;
@@ -19,7 +12,7 @@
   box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.35);
 }
 
-.playlist .playlist-details .image {
+.playlist .details .image {
   width: 160px;
   height: 160px;
   object-fit: cover;
