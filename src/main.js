@@ -7,7 +7,7 @@ import { BootstrapVue } from 'bootstrap-vue'
 
 // Setup axios
 Vue.prototype.$axios = axios
-Vue.prototype.$axios.defaults.baseURL = 'https://api.spotify.com/v1'
+Vue.prototype.$axios.defaults.baseURL = process.env.VUE_APP_API_URL
 Vue.prototype.$devMode = true // devmode
 
 Vue.config.productionTip = false

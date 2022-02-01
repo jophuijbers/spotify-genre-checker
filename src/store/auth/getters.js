@@ -1,5 +1,5 @@
 const getters = {
-    authUrl: state => state.authUrl(),
+    authUrl: state => state.authUrl,
     isAuthenticated: state => state.isAuthenticated,
 }
 
