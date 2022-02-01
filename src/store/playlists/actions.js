@@ -25,10 +25,24 @@ const actions = {
         ApiService.setHeader()
         try {
             const {data} = await ApiService.get(`/playlists/${playlist}`)
+
+            let tracks = data.tracks
+            let offset = 0
+
+            while (tracks.next !== null) {
+                offset += 100
+                const {data} = await ApiService.getWithParams(`/playlists/${playlist}/tracks`, {
+                    offset: offset
+                })
+                tracks.items = tracks.items.concat(data.items)
+                tracks.next = data.next
+            }
+
             for (const item of data.tracks.items) {
                 const { data } = await ApiService.get(`/artists/${item.track.artists[0].id}`)
                 item.genres = data.genres
             }
+
             context.commit(SET_PLAYLIST, data)
         } catch ({ response }) {
             console.log(response)
@@ -37,5 +51,3 @@ const actions = {
 }
 
 export default actions
-
-  
