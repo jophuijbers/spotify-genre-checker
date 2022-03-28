@@ -1,0 +1,10 @@
+.track-list {
+  &__card {
+    &__image {
+      height: 100px;
+      width: 100px;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+  }
+}

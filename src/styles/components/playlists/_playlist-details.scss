@@ -1,0 +1,26 @@
+.playlist-details {
+  &__card {
+    &__image {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+    &__info {
+      overflow: hidden;
+      &__title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      &__description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        max-height: 3rem;       /* fallback */
+      }
+    }
+  }
+}

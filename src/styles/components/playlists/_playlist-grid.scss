@@ -1,0 +1,17 @@
+
+.playlist-grid {
+  &__card {
+    height: 100%;
+    &__img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+    }
+    &__name {
+      margin-top: .5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
